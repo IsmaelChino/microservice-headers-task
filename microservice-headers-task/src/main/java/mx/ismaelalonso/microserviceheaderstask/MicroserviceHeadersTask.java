@@ -12,11 +12,9 @@ import java.util.Map;
  *
  * @author Ismael Alonso.
  */
-public class App {
-    public static void main( String[] args ) {
-    }
-    
-    /**
+public class MicroserviceHeadersTask {
+
+  /**
    * Map the HTTP headers inside the request specified to a {@link Map}.
    *
    * @param request the HttpServletRequest with the HTTP headers
@@ -31,7 +29,7 @@ public class App {
   }
 
   /**
-   * Map the HHTP headers with the names specified in the headersNames {@link List} to a {@link
+   * Map the HTTP headers with the names specified in the headersNames {@link List} to a {@link
    * Map}.
    *
    * @param request the HttpServletRequest with the HTTP headers
@@ -45,4 +43,5 @@ public class App {
         headerName -> headersMap.put(headerName, Collections.list(request.getHeaders(headerName))));
     return headersMap;
   }
+
 }
