@@ -3,7 +3,7 @@ package mx.ismaelalonso.microserviceheaderstask;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +21,7 @@ public class MicroserviceHeadersTask {
    * @return a map with all the headers in the request
    */
   public Map<String, List<String>> getHeaders(HttpServletRequest request) {
-    Map<String, List<String>> headersMap = new HashMap<>();
+    Map<String, List<String>> headersMap = new LinkedHashMap<>();
     ArrayList<String> headersNames = Collections.list(request.getHeaderNames());
     headersNames.forEach(
         headerName -> headersMap.put(headerName, Collections.list(request.getHeaders(headerName))));
@@ -38,7 +38,7 @@ public class MicroserviceHeadersTask {
    */
   public Map<String, List<String>> getSpecificHeaders(
       HttpServletRequest request, List<String> headersNames) {
-    Map<String, List<String>> headersMap = new HashMap<>();
+    Map<String, List<String>> headersMap = new LinkedHashMap<>();
     headersNames.forEach(
         headerName -> headersMap.put(headerName, Collections.list(request.getHeaders(headerName))));
     return headersMap;
